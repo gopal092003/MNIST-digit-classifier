@@ -151,9 +151,10 @@ The model:
 
 ---
 
-## 💡 Author
+## 👤 Author
 
 **Gopal Gupta**
+GitHub: https://github.com/gopal092003
 
 ---
 
