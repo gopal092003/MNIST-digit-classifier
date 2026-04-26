@@ -64,7 +64,7 @@ mnist-digit-classifier/
 ## ⚙️ Installation
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/gopal092003/MNIST-digit-classifier.git
 cd mnist-digit-classifier
 pip install -r requirements.txt
 ```
