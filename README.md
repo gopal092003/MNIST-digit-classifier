@@ -1,91 +1,128 @@
-# 🧠 MNIST Digit Classifier (PyTorch CNN)
+# MNIST Digit Classifier
 
-A deep learning project implementing a **Convolutional Neural Network (CNN)** for handwritten digit classification on the MNIST dataset using PyTorch.
-
----
-
-## 🚀 Features
-
-* ✅ CNN-based architecture (Conv + Pool + FC)
-* ✅ Dropout for regularization
-* ✅ Normalized input pipeline
-* ✅ Modular project structure (production-ready)
-* ✅ Cross-platform execution (Windows + Linux)
-* ✅ **~99.26% test accuracy**
-* ✅ Visualization of predictions
+A Convolutional Neural Network (CNN) built with PyTorch for handwritten digit classification on the MNIST dataset. The project follows a modular structure with separate components for data processing, model definition, training, evaluation, and visualization, making it easy to experiment with and extend.
 
 ---
 
-## 🧱 Model Architecture
+## Overview
 
-![Architecture](assets/Architecture.png)
-
-**Architecture Details:**
-
-* Input: `1 × 28 × 28`
-* Conv1: `32 filters, 3×3` → ReLU → MaxPool → `32 × 14 × 14`
-* Conv2: `64 filters, 3×3` → ReLU → MaxPool → `64 × 7 × 7`
-* Flatten → `3136`
-* FC1: `128 neurons` → ReLU → Dropout (0.25)
-* FC2: `10 output classes`
+The MNIST dataset is a standard benchmark for image classification. This project implements a CNN that learns to recognize handwritten digits (0–9) and achieves **99.26% test accuracy** while maintaining a simple and reproducible training pipeline.
 
 ---
 
-## 📊 Results
+## Features
 
-![Results](assets/Results.png)
-
-* **Test Accuracy:** `99.26%`
-* **Final Training Loss:** `~0.026`
-* Stable convergence within **5 epochs**
+- CNN-based image classifier
+- Modular project structure
+- Automatic MNIST dataset download
+- GPU acceleration when available
+- Model evaluation utilities
+- Prediction visualization
+- Cross-platform execution
+- Approximately **99.26%** test accuracy
 
 ---
 
-## 📁 Project Structure
+## Model Architecture
 
-```bash
+The network consists of two convolutional blocks followed by two fully connected layers with dropout for regularization.
+
+<p align="center">
+  <img src="assets/Architecture.png" alt="CNN Architecture" width="850"/>
+</p>
+
+### Architecture
+
+| Layer | Output |
+|--------|--------|
+| Input | 1 × 28 × 28 |
+| Conv2D (32 filters, 3×3) | 32 × 28 × 28 |
+| ReLU | — |
+| Max Pooling | 32 × 14 × 14 |
+| Conv2D (64 filters, 3×3) | 64 × 14 × 14 |
+| ReLU | — |
+| Max Pooling | 64 × 7 × 7 |
+| Flatten | 3136 |
+| Fully Connected | 128 |
+| Dropout | 0.25 |
+| Output Layer | 10 Classes |
+
+---
+
+## Results
+
+The model converges quickly and performs well on the MNIST test dataset.
+
+<p align="center">
+  <img src="assets/Results.png" alt="Training Results" width="850"/>
+</p>
+
+| Metric | Value |
+|--------|------:|
+| Test Accuracy | **99.26%** |
+| Final Training Loss | ~0.026 |
+| Training Epochs | 5 |
+
+---
+
+## Project Structure
+
+```
 mnist-digit-classifier/
 │
-├── src/
-│   ├── data/        # Data loading & preprocessing
-│   ├── models/      # CNN architecture
-│   ├── training/    # Training loop
-│   ├── evaluation/  # Evaluation logic
-│   └── utils/       # Visualization
+├── configs/              # Hyperparameters
+├── notebooks/            # Experiments
+├── outputs/              # Saved models
+├── scripts/              # Training scripts
 │
-├── configs/         # Hyperparameters
-├── scripts/         # Run scripts
-├── outputs/         # Saved models
-├── notebooks/       # Jupyter experiments
+├── src/
+│   ├── data/             # Data loading
+│   ├── evaluation/       # Evaluation
+│   ├── models/           # CNN model
+│   ├── training/         # Training pipeline
+│   └── utils/            # Visualization
+│
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## ⚙️ Installation
+## Installation
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/gopal092003/MNIST-digit-classifier.git
-cd mnist-digit-classifier
+
+cd MNIST-digit-classifier
+```
+
+Install the required packages:
+
+```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🏋️ Training
+## Training
 
-### ✅ Recommended (cross-platform)
+Run the training pipeline:
 
 ```bash
 python -m src.training.train
 ```
 
-### 🐧 Linux / Mac
+Alternatively,
+
+**Linux / macOS**
 
 ```bash
 bash scripts/train.sh
 ```
 
-### 🪟 Windows
+**Windows**
 
 ```bash
 python src/training/train.py
@@ -93,69 +130,68 @@ python src/training/train.py
 
 ---
 
-## 📈 Evaluation
+## Evaluation
+
+Evaluate the trained model:
 
 ```bash
 python -m src.evaluation.evaluate
 ```
 
-Output:
+Example output:
 
-```bash
+```
 Test Accuracy: 99.26%
 ```
 
 ---
 
-## 🖼️ Sample Predictions
+## Sample Predictions
 
-The model:
+The trained model is capable of:
 
-* Correctly classifies handwritten digits
-* Generalizes well to different writing styles
-* Achieves high confidence predictions
-
----
-
-## 🧠 Tech Stack
-
-* Python
-* PyTorch
-* Torchvision
-* Matplotlib
+- Classifying handwritten digits from 0–9
+- Generalizing to different handwriting styles
+- Producing high-confidence predictions on unseen data
 
 ---
 
-## 🔮 Future Improvements
+## Tech Stack
 
-* 📊 Confusion Matrix & Precision/Recall
-* 🔥 Grad-CAM visualization
-* 📈 Training curves (loss/accuracy plots)
-* 🧪 Hyperparameter tuning
-* 🌐 Deploy as web app (Streamlit)
-
----
-
-## 📌 Notes
-
-* Dataset auto-downloads (no manual setup needed)
-* GPU used automatically if available
-* Modular design → easy to extend and scale
+- Python
+- PyTorch
+- Torchvision
+- Matplotlib
 
 ---
 
-## ⭐ Acknowledgements
+## Future Improvements
 
-* MNIST Dataset
-* PyTorch Documentation
+- Confusion matrix visualization
+- Precision, Recall, and F1-score
+- Grad-CAM explainability
+- Hyperparameter optimization
+- Streamlit web application
+- Model export with ONNX or TorchScript
 
 ---
 
-## 👤 Author
+## Notes
+
+- The MNIST dataset is downloaded automatically.
+- CUDA is used automatically when a compatible GPU is available.
+- The modular project structure makes it straightforward to experiment with different architectures.
+
+---
+
+## Author
 
 **Gopal Gupta**
+
 GitHub: https://github.com/gopal092003
 
 ---
 
-If you found this useful, consider giving it a ⭐ on GitHub!
+## License
+
+This project is licensed under the MIT License.
