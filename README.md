@@ -92,7 +92,7 @@ mnist-digit-classifier/
 
 Clone the repository:
 
-```bash
+```
 git clone https://github.com/gopal092003/MNIST-digit-classifier.git
 
 cd MNIST-digit-classifier
@@ -100,7 +100,7 @@ cd MNIST-digit-classifier
 
 Install the required packages:
 
-```bash
+```
 pip install -r requirements.txt
 ```
 
@@ -110,7 +110,7 @@ pip install -r requirements.txt
 
 Run the training pipeline:
 
-```bash
+```
 python -m src.training.train
 ```
 
@@ -118,13 +118,13 @@ Alternatively,
 
 **Linux / macOS**
 
-```bash
-bash scripts/train.sh
+```
+ scripts/train.sh
 ```
 
 **Windows**
 
-```bash
+```
 python src/training/train.py
 ```
 
@@ -134,7 +134,7 @@ python src/training/train.py
 
 Evaluate the trained model:
 
-```bash
+```
 python -m src.evaluation.evaluate
 ```
 
